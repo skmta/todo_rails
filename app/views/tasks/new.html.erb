@@ -1,0 +1,15 @@
+<%= form_with model: @task, url: tasks_path, local: true do |form| %>
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+    <div>
+        <%= form.label :due_date %>
+        <%= form.text_field :due_date %>
+    </div>
+<%= form.submit %>
+<% end %>
