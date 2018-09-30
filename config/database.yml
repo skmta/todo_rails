@@ -12,14 +12,16 @@
 default: &default
   adapter: mysql2
   encoding: utf8
+  charset: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  host: localhost
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: todo_app
 
 development:
   <<: *default
-  database: todo_app_development
+  socket: <%= ENV['DATABASE_SOCKET'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +51,3 @@ test:
 #
 production:
   <<: *default
-  database: todo_app_production
-  username: todo_app
-  password: <%= ENV['TODO_APP_DATABASE_PASSWORD'] %>

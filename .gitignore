@@ -10,6 +10,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+!/tmp/.keep
+!/tmp/sockets/.keep
+!/tmp/pids/.keep
+!/tmp/logs/.keep
 
 # Ignore uploaded files in development
 /storage/*
@@ -22,3 +26,4 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+vendor/bundle
