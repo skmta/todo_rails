@@ -1,5 +1,4 @@
-<h1>tasks</h1>
-<h2><%= link_to "new", new_task_path %></h2>
+<h4><%= link_to "new", new_task_path %></h4>
 
 <!-- <h2><%= link_to "一覧", "/posts" %></h2> -->
  <!-- 投稿一覧を表示 -->
@@ -8,5 +7,6 @@
   	<li><%= task.title %></li>
   	<li><%= task.description %></li>
   	<li><%= task.due_date %></li>
+  	<li><%= link_to "x", task_path(task), method: :delete %></li>
   </ul>
 <%end%>

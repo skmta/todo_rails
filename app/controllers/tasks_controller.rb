@@ -25,6 +25,11 @@ class TasksController < ApplicationController
     	# @task = Task.find(params[:id])
     end
 
+    #投稿を削除
+    def destroy
+
+    end
+
     # 
     private
     def create_task_params
