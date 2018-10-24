@@ -27,12 +27,22 @@ class TasksController < ApplicationController
 
     #投稿を削除
     def destroy
-
+        @task = Task.find(params[:id])
+        if @task.delete
+            redirect_to tasks_path
+        else
+            flush[:notice] = "Error"
+        end
     end
 
-    # 
+    # タスクの情報
     private
     def create_task_params
+        params.permit(:title, :description, :due_date)
+    end
+
+    #編集
+    def update_task_params
         params.permit(:title, :description, :due_date)
     end
 
