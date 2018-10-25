@@ -35,9 +35,13 @@ class TasksController < ApplicationController
         end
     end
 
+    def done
+    end
+
     # タスクの情報
     private
     def create_task_params
+        #DB追加を許可するカラムを設定
         params.permit(:title, :description, :due_date)
     end
 
