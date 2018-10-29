@@ -13,9 +13,9 @@ class TasksController < ApplicationController
     def create
     	@task = Task.new(create_task_params)
     	if @task.save
-    		redirect_to tasks_path
+    		redirect_to("tasks/index")   
     	else
-    		render @task.error
+    		render("tasks/new")
     	end
     end
 
