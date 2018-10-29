@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     def create
     	@task = Task.new(create_task_params)
     	if @task.save
-    		redirect_to("tasks/index")   
+    		redirect_to("/tasks")   
     	else
     		render("tasks/new")
     	end
