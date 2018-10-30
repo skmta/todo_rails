@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2018_09_30_102120) do
     t.datetime "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_tasks_on_title"
   end
 
 end

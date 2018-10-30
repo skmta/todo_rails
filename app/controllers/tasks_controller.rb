@@ -7,16 +7,15 @@ class TasksController < ApplicationController
 
     #オブジェクトの生成、dbに反映されない
     def new
-        @task = Task.new(create_task_params)
     end
 
     #オブジェクトを生成、保存してインサートする
     def create
-    	@task = Task.new(create_task_params)
+        @task = Task.new(create_task_params)
     	#保存できたらトップページへ
         if @task.save
     		redirect_to("/tasks")   
-    	＃失敗したら新規作成ページへ
+    	# ＃失敗したら新規作成ページへ
         else
     		render("tasks/new")
     	end
@@ -34,11 +33,14 @@ class TasksController < ApplicationController
            redirect_to("/tasks")
         #失敗したら編集ページへ
         else
-            redirect_to("tasks/#{@task.id}/edit")
+            render("tasks/edit")
         end
     end
 
-    #投稿を削除
+    def edit
+        @task = Task.find(params[:id])
+    end
+
     def destroy
         @task = Task.find(params[:id])
         if @task.delete
