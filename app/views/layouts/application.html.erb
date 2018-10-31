@@ -15,6 +15,13 @@
     <header>
       <h3>tasks</h3>
     </header>
+    
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
