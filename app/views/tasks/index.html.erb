@@ -1,7 +1,9 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
 <h4><%= link_to "new", new_task_path %></h4>
 
-<!-- <h2><%= link_to "一覧", "/posts" %></h2> -->
- <!-- 投稿一覧を表示 -->
  <% @tasks.each do |task| %>
   <ul>
   	<li><%= task.title %></li>

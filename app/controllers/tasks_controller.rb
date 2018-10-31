@@ -14,17 +14,18 @@ class TasksController < ApplicationController
         @task = Task.new(create_task_params)
     	#保存できたらトップページへ
         if @task.save
+            flash[:notice] = "success"
     		redirect_to("/tasks")   
     	# ＃失敗したら新規作成ページへ
         else
+            flash[:notice] = "Error"
     		render("tasks/new")
     	end
     end
 
     #投稿一覧を表示
     def show
-    	@task = Task.all
-    	# @task = Task.find(params[:id])
+    	@task = Task.find_by(id: params[:id])
     end
 
     def update
@@ -38,7 +39,7 @@ class TasksController < ApplicationController
     end
 
     def edit
-        @task = Task.find(params[:id])
+        @task = Task.find_by(id: params[:id])
     end
 
     def destroy
@@ -46,7 +47,7 @@ class TasksController < ApplicationController
         if @task.delete
             redirect_to tasks_path
         else
-            flush[:notice] = "Error"
+            flash[:notice] = "Error"
         end
     end
 
@@ -62,7 +63,7 @@ class TasksController < ApplicationController
 
     #編集
     def update_task_params
-        params.permit(:title, :description, :due_date)
+        params.require(:task).permit(:title, :description, :due_date)
     end
 
 end

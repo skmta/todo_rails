@@ -1,4 +1,3 @@
-<h1>tasks</h1>
-<li><%= @task.title %></li>
-<li><%= @task.description %></li>
-<li><%= @task.due_date %></li>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
